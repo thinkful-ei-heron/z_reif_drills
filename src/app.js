@@ -1,27 +1,26 @@
-// console.log('Hello my name is Zee and I\'m 42.');
-
-function createGreeting (name,age) {
-    // const yearOfBirth = 2019 - age;
-    return (`Hello my name is ${name} and I'm ${age}. `);
+function getYearOfBirth(age) {
+  return 2019 - age;
 }
 
-function getYearOfBirth (age) {
-    const yearOfBirth = 2019 - age;
-    if (yearOfBirth < 0){
-        throw new Error("Age can not be negative.");
-    } else {
-        
-        return (`I was born in ${yearOfBirth}.`); 
-    }
-}
+function createGreeting(name, age) {
+  if (name === undefined || age === undefined) {
+    throw new Error("Something is undefined");
+  }
 
+  if (age < 0) {
+    throw new Error("Age can not be negative.");
+  }
+
+  if (typeof age !== "number") {
+    throw new Error("Age is not a number.");
+  }
+  const yob = getYearOfBirth(age);
+  return `Hi my name is ${name} and I'm ${age} years old and I was born in ${yob}.`;
+}
 
 try {
-    const greeting1 = createGreeting('Zee', 42);
-    console.log(greeting1);
+  const greeting1 = createGreeting("Zee", 29);
+  console.log(greeting1);
 } catch (e) {
-    console.log(e.message);
+  console.error(e.message);
 }
-// const greeting1 = createGreeting('Zee', 42);
-// console.log(greeting1);
-// console.log(getYearOfBirth(40));
