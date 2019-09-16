@@ -1,2 +1,1 @@
-let myTeam = 'zee reif';
-console.log(myTeam);
+console.log('Hello my name is Zee and I\'m 42.');
