@@ -7,7 +7,21 @@ function createGreeting (name,age) {
 
 function getYearOfBirth (age) {
     const yearOfBirth = 2019 - age;
-    return (`I was born in ${yearOfBirth}.`);
+    if (yearOfBirth < 0){
+        throw new Error("Age can not be negative.");
+    } else {
+        
+        return (`I was born in ${yearOfBirth}.`); 
+    }
 }
-const greeting1 = createGreeting('Zee', 42);
-console.log(greeting1);
+
+
+try {
+    const greeting1 = createGreeting('Zee', 42);
+    console.log(greeting1);
+} catch (e) {
+    console.log(e.message);
+}
+// const greeting1 = createGreeting('Zee', 42);
+// console.log(greeting1);
+// console.log(getYearOfBirth(40));
